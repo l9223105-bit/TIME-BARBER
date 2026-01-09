@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIME BARBER</title>
+    <style>
+        :root { --gold: #c5a059; --dark: #080808; --card: #121212; }
+        body { background: var(--dark); color: white; font-family: 'Arial', sans-serif; margin: 0; padding-bottom: 50px; }
+        
+        header { 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/1319461/pexels-photo-1319461.jpeg?auto=compress&cs=tinysrgb&w=1200'); 
+            height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border-bottom: 2px solid var(--gold); text-align: center; background-size: cover;
+        }
+        .logo { font-size: 2.3rem; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin: 0; font-weight: bold; }
+
+        .container { padding: 15px; max-width: 500px; margin: auto; }
+        .section-title { color: var(--gold); text-align: center; letter-spacing: 2px; margin: 40px 0 20px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 8px; font-size: 1.1rem; }
+
+        .promo-banner {
+            background: linear-gradient(45deg, #b38b40, var(--gold));
+            color: black; padding: 15px; border-radius: 12px; text-align: center;
+            font-weight: bold; margin: 20px 0; border: 2px solid white;
+        }
+
+        .price-card { background: var(--card); border-radius: 15px; padding: 15px; border: 1px solid #222; margin-bottom: 20px; }
+        .price-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222; }
+        .price-item:last-child { border: none; }
+        .price-value { color: var(--gold); font-weight: bold; }
+
+        .info-box { background: var(--card); border: 1px solid #222; border-radius: 15px; padding: 20px; text-align: center; margin: 20px 0; border-left: 4px solid var(--gold); }
+        .info-box span { color: var(--gold); font-weight: bold; }
+
+        .time-selector {
+            background: #1a1a1a; padding: 15px; border-radius: 12px; margin-top: 15px;
+            display: flex; align-items: center; justify-content: center; gap: 20px; border: 1px dashed var(--gold);
+        }
+        .time-btn { background: var(--gold); border: none; color: black; width: 45px; height: 45px; border-radius: 50%; font-size: 1.5rem; font-weight: bold; }
+
+        .master-card { background: var(--card); border-radius: 15px; margin-bottom: 30px; overflow: hidden; border: 1px solid #1a1a1a; }
+        .master-card img { width: 100%; height: 350px; object-fit: cover; display: block; }
+        .master-info { padding: 20px; text-align: center; border-top: 2px solid var(--gold); }
+        .price-tag { background: #1a1a1a; color: var(--gold); display: inline-block; padding: 5px 15px; border-radius: 20px; margin-top: 10px; font-weight: bold; border: 1px solid var(--gold); }
+        .btn-wa { background: #25d366; color: white; text-decoration: none; padding: 14px 25px; border-radius: 50px; display: inline-block; font-weight: bold; margin-top: 15px; width: 85%; }
+
+        .grid-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .grid-gallery div { border-radius: 10px; overflow: hidden; border: 1px solid #222; height: 160px; }
+        .grid-gallery img { width: 100%; height: 100%; object-fit: cover; }
+
+        .map-btn {
+            background: #1a1a1a; color: white; text-decoration: none; display: block;
+            padding: 15px; border-radius: 10px; text-align: center; border: 1px solid var(--gold);
+            margin-top: 10px; font-weight: bold; font-size: 0.8rem;
+        }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="logo">TIME BARBER</h1>
+    <p style="color: #fff; font-size: 0.8rem; letter-spacing: 3px;">САПАТТУУ ТЕЙЛӨӨ</p>
+</header>
+
+<div class="container">
+
+<div class="promo-banner">
+        <h2>🔥 АТАЙЫН АКЦИЯ 🔥</h2>
+        <p>Ар бир 5-келүүдө 50% АРЗАНДАТУУ!</p>
+    </div>
+
+    <div class="info-box">
+        <p>🕒 Иш убактысы: <span>09:00 - 21:00</span></p>
+        <p>📍 Дарек: <span>Гимназия , имени Ал-хоразмий, Ноокат, Киргизия</span></p>
+        <div class="time-selector">
+            <button class="time-btn" onclick="changeTime(-30)">−</button>
+            <span id="selected-time" style="font-size: 1.5rem; font-weight: bold;">10:00</span>
+            <button class="time-btn" onclick="changeTime(30)">+</button>
+        </div>
+    </div>
+
+    <h2 class="section-title">Кызматтар жана Баалар</h2>
+    <div class="price-card">
+        <div class="price-item"><span>Сакал алуу</span> <span class="price-value">100 сом</span></div>
+        <div class="price-item"><span>Чистка лица</span> <span class="price-value">350 сом</span></div>
+    </div>
+    
+    <h2 class="section-title">Биздин Мастерлер</h2>
+
+    <div class="master-card">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800" alt="Master 1">
+        <div class="master-info">
+            <h3>1-СТОЛ: Тохиржон</h3>
+            <div class="price-tag">Чач алуу: 300 сом</div><br>
+            <a href="#" onclick="sendWA('996707161205', 'Тохиржон')" class="btn-wa">Очирет алуу (WA)</a>
+        </div>
+    </div>
+
+    <div class="master-card">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800" alt="Master 2">
+        <div class="master-info">
+            <h3>2-СТОЛ: Салохидин</h3>
+            <div class="price-tag">Чач алуу: 250 сом</div><br>
+            <a href="#" onclick="sendWA('996999989787', '2-стол')" class="btn-wa">Очирет алуу (WA)</a>
+        </div>
+    </div>
+
+    <div class="master-card">
+        <img src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Master 3">
+        <div class="master-info">
+            <h3>3-СТОЛ: Бахромжон</h3>
+            <div class="price-tag">Чач алуу: 250 сом</div><br>
+            <a href="#" onclick="sendWA('996228707457', '3-стол')" class="btn-wa">Очирет алуу (WA)</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">ЗАМАНБАП ПРИЧЁСКАЛАР</h2>
+    <div class="grid-gallery">
+        <div><img src="https://images.pexels.com/photos/3993323/pexels-photo-3993323.jpeg?auto=compress&cs=tinysrgb&w=400"></div>
+        <div><img src="https://images.pexels.com/photos/1453005/pexels-photo-1453005.jpeg?auto=compress&cs=tinysrgb&w=400"></div>
+        <div><img src="https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg?auto=compress&cs=tinysrgb&w=400"></div>
+        <div><img src="https://images.pexels.com/photos/2521978/pexels-photo-2521978.jpeg?auto=compress&cs=tinysrgb&w=400"></div>
+    </div>
+
+    <h2 class="section-title">АТМОСФЕРА</h2>
+    <div class="grid-gallery">
+        <div><img src="https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
+        <div><img src="https://images.pexels.com/photos/2040189/pexels-photo-2040189.jpeg?auto=compress&cs=tinysrgb&w=600"></div>
+    </div>
+
+    <h2 class="section-title">Биздин дарек</h2>
+    <a href="https://www.google.com/maps/search/Гимназия , имени Ал-хоразмий, Ноокат, Киргизия" class="map-btn">📍 GOOGLE КАРТАДАН КӨРҮҮ</a>
+
+</div>
+
+<script>
+    let currentMinutes = 600; 
+    function changeTime(step) {
+        currentMinutes += step;
+        if (currentMinutes < 540) currentMinutes = 540; 
+        if (currentMinutes > 1260) currentMinutes = 1260; 
+        let h = Math.floor(currentMinutes / 60);
+        let m = currentMinutes % 60;
+        document.getElementById('selected-time').innerText = (h < 10 ? '0' + h : h) + ':' + (m === 0 ? '00' : m);
+    }
+    function sendWA(phone, master) {
+
+let time = document.getElementById('selected-time').innerText;
+        let text = Саламатсызбы, ${master}! Саат ${time} чач алууга жазылайын дедим эле. Акция боюнча маалыматым бар.;
+        window.open(https://wa.me/${phone}?text=${encodeURIComponent(text)}, '_blank');
+    }
+</script>
+
+<footer><p>TIME BARBER  © 2026</p></footer>
+</body>
+</html>
